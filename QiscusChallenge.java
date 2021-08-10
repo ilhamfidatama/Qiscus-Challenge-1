@@ -21,6 +21,8 @@ in order to:
     10 : true
 */
 
+import java.util.stream.Collectors;
+
 class Main {
     public static void main(String[] args) {
         // The following story is totally fiction. Any resemblances with real world character is (perhaps)
@@ -95,10 +97,10 @@ class Main {
         sleep in the middle of night, he often goes to his library just to check the books that authored by him. He
         said this gives him peace required for him to sleep.
         */
-        // java.util.List<Book> booksByArthurConanDoyle = fictionBookLibrary.listBooksAuthoredBy("Arthur Conan Doyle");
+         java.util.List<Book> booksByArthurConanDoyle = fictionBookLibrary.listBooksAuthoredBy("Arthur Conan Doyle");
 
-        // System.out.println("4  : " + booksByArthurConanDoyle.contains(theAdventuresOfSherlockHolmes));
-        // System.out.println("5  : " + booksByArthurConanDoyle.contains(aStudyInScarlet));
+         System.out.println("4  : " + booksByArthurConanDoyle.contains(theAdventuresOfSherlockHolmes));
+         System.out.println("5  : " + booksByArthurConanDoyle.contains(aStudyInScarlet));
 
         // /*
         // Did I mention that he's also really generous person? Bill tries to open membership into his precious library.
@@ -176,11 +178,9 @@ class FictionBookLibrary {
     }
 
     public java.util.List<Book> listBooksAuthoredBy(String author){
-        java.util.List<Book> collectionAuthor = new java.util.ArrayList<>();
-
-        collectionAuthor = collection;
-
-        return collectionAuthor;
+        return collection.stream().filter(
+                book -> book.author.equals(author)
+        ).collect(Collectors.toList());
     }
 }
 
