@@ -21,6 +21,8 @@ in order to:
     10 : true
 */
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 class Main {
@@ -102,70 +104,70 @@ class Main {
          System.out.println("4  : " + booksByArthurConanDoyle.contains(theAdventuresOfSherlockHolmes));
          System.out.println("5  : " + booksByArthurConanDoyle.contains(aStudyInScarlet));
 
-        // /*
-        // Did I mention that he's also really generous person? Bill tries to open membership into his precious library.
-        // He wants people to be inspired by those fiction books, just like him. However, he don't want public know about
-        // this (it's still his precious, after all), so he open the membership just for two people: John and Jane.
-        // */
-        // Member john = fictionBookLibrary.createMember("John");
-        // Member jane = fictionBookLibrary.createMember("Jane");
+         /*
+         Did I mention that he's also really generous person? Bill tries to open membership into his precious library.
+         He wants people to be inspired by those fiction books, just like him. However, he don't want public know about
+         this (it's still his precious, after all), so he open the membership just for two people: John and Jane.
+         */
+         Member john = fictionBookLibrary.createMember("John");
+         Member jane = fictionBookLibrary.createMember("Jane");
 
-        // /*
-        // Really happy to be a member of Bill's library, John immediately borrows the first series of 'Harry Potter' and
-        // 'The Lord of the Rings'.
-        // */
-        // john.borrow(harryPotterAndTheSorcerersStone);
-        // john.borrow(theFellowshipOfTheRing);
+         /*
+         Really happy to be a member of Bill's library, John immediately borrows the first series of 'Harry Potter' and
+         'The Lord of the Rings'.
+         */
+         john.borrow(harryPotterAndTheSorcerersStone);
+         john.borrow(theFellowshipOfTheRing);
 
-        // /*
-        // Bill knows about this, of course. Somehow, it makes him feel happy. He feels like his life is now complete.
-        // */
-        // java.util.List<Book> borrowedByJohn = john.listBorrowedBooks();
+         /*
+         Bill knows about this, of course. Somehow, it makes him feel happy. He feels like his life is now complete.
+         */
+         java.util.List<Book> borrowedByJohn = john.listBorrowedBooks();
 
-        // System.out.println("6  : " + borrowedByJohn.contains(harryPotterAndTheSorcerersStone));
-        // System.out.println("7  : " + borrowedByJohn.contains(theFellowshipOfTheRing));
+         System.out.println("6  : " + borrowedByJohn.contains(harryPotterAndTheSorcerersStone));
+         System.out.println("7  : " + borrowedByJohn.contains(theFellowshipOfTheRing));
 
-        // /*
-        // The other member, Jane, is a hardcore fan of 'The Lord of the Rings'. The next morning, she tries to borrow two
-        // 'The Fellowship of The Ring' and 'The Two Towers' from the series, ..
-        // */
-        // jane.borrow(theFellowshipOfTheRing);
-        // jane.borrow(theTwoTowers);
+         /*
+         The other member, Jane, is a hardcore fan of 'The Lord of the Rings'. The next morning, she tries to borrow two
+         'The Fellowship of The Ring' and 'The Two Towers' from the series, ..
+         */
+         jane.borrow(theFellowshipOfTheRing);
+         jane.borrow(theTwoTowers);
 
-        // /*
-        // .. But little did she know that 'The Fellowship of the Ring' already lent. "Well", she thought, "at least I got
-        // 'The Two Towers'".
-        // */
-        // java.util.List<Book> borrowedByJane = jane.listBorrowedBooks();
+         /*
+         .. But little did she know that 'The Fellowship of the Ring' already lent. "Well", she thought, "at least I got
+         'The Two Towers'".
+         */
+         java.util.List<Book> borrowedByJane = jane.listBorrowedBooks();
 
-        // System.out.println("8  : " + !borrowedByJane.contains(theFellowshipOfTheRing));
-        // System.out.println("9  : " + borrowedByJane.contains(theTwoTowers));
+         System.out.println("8  : " + !borrowedByJane.contains(theFellowshipOfTheRing));
+         System.out.println("9  : " + borrowedByJane.contains(theTwoTowers));
 
-        // /*
-        // Bill, who really cares about his customers, feels sad about this. "I should find more books", he thought. Later
-        // did he know that it will be really really hard for him to find more rare fiction book.
+         /*
+         Bill, who really cares about his customers, feels sad about this. "I should find more books", he thought. Later
+         did he know that it will be really really hard for him to find more rare fiction book.
 
-        // Fast forward ten years. Bill arrived at Krakhosia, a country that most people never heard of. He got there
-        // without any intention finding a rare fiction book. That's why his eye bewildered when he encountered another
-        // copy of 'The Adventures of Sherlock Holmes', ..
-        // */
-        // Book anotherTheAdventuresOfSherlockHolmes = new Book("The Adventures of Sherlock Holmes", "Arthur Conan Doyle");
+         Fast forward ten years. Bill arrived at Krakhosia, a country that most people never heard of. He got there
+         without any intention finding a rare fiction book. That's why his eye bewildered when he encountered another
+         copy of 'The Adventures of Sherlock Holmes', ..
+         */
+         Book anotherTheAdventuresOfSherlockHolmes = new Book("The Adventures of Sherlock Holmes", "Arthur Conan Doyle");
 
-        // /*
-        // .. But because of his old age, he can't remember whether he already has it in his library, and so he checks..
-        // */
-        // System.out.println("10 : " + availableBooks.contains(anotherTheAdventuresOfSherlockHolmes));
+         /*
+         .. But because of his old age, he can't remember whether he already has it in his library, and so he checks..
+         */
+         System.out.println("10 : " + availableBooks.contains(anotherTheAdventuresOfSherlockHolmes));
 
-        // /*
-        // "Seems I had it already. Sigh..", he said. "Perhaps another time"..
-        // */
+         /*
+         "Seems I had it already. Sigh..", he said. "Perhaps another time"..
+         */
     }
 }
 
 
 class FictionBookLibrary {
     // PLACE YOUR CODE HERE
-    private final java.util.List<Book> collection = new java.util.ArrayList<>();
+    private final List<Book> collection = new ArrayList<>();
 
     public void addCollection(Book book, int qty) {
         for(int i = 0; i < qty; i++) {
@@ -182,12 +184,24 @@ class FictionBookLibrary {
                 book -> book.author.equals(author)
         ).collect(Collectors.toList());
     }
+
+    public Member createMember(String name) {
+        return new Member(name, this);
+    }
+
+    public Book borrow(Book book){
+        if (collection.contains(book)){
+            collection.remove(book);
+            return book;
+        }
+        return null;
+    }
 }
 
 class Book {
     // PLACE YOUR CODE HERE
-    String title = "";
-    String author = "";
+    String title;
+    String author;
 
     Book(String title, String author){
         this.title = title;
@@ -195,11 +209,25 @@ class Book {
     }
 }
 
-class Member {
+class Member{
     // PLACE YOUR CODE HERE
-    String name = "";
+    String name;
+    private final java.util.List<Book> borrowList = new ArrayList<>();
+    private final FictionBookLibrary bookLibrary;
 
-    Member(String name){
+    Member(String name, FictionBookLibrary bookLibrary){
         this.name = name;
+        this.bookLibrary = bookLibrary;
+    }
+
+    public void borrow(Book book){
+        Book availableBook = bookLibrary.borrow(book);
+        if (availableBook != null){
+            borrowList.add(availableBook);
+        }
+    }
+
+    public List<Book> listBorrowedBooks() {
+        return borrowList;
     }
 }
