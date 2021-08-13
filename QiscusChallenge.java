@@ -207,6 +207,15 @@ class Book {
         this.title = title;
         this.author = author;
     }
+
+    @Override
+    public boolean equals(Object other){
+        if (other==null) return false;
+        if (other==this) return true;
+        if (!(other instanceof Book)) return false;
+        Book book = (Book)other;
+        return title.equals(book.title) && author.equals(book.author);
+    }
 }
 
 class Member{
